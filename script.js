@@ -9,11 +9,8 @@
  * when a dead end is reached. It efficiently prunes the search space, 
  * finding solutions through trial and error.
  * 
- * 
- * 
  * CREATED BY: KUSH PATEL
  * GITHUB: github.com/kush-7k
- * 
  */
 
 
@@ -53,15 +50,8 @@ document.addEventListener("DOMContentLoaded", function() {
     function generateSudoku(difficulty) {
         clearGrid();
 
-        const solvedGrid = [];
-        for (let i = 0; i < 9; i++) {
-            const row = [];
-            for (let j = 0; j < 9; j++) {
-                row.push(0);
-            }
-            solvedGrid.push(row);
-        }
-        solve(solvedGrid);
+        let solvedGrid = generateSolvedSudoku();
+        solvedGrid = shuffleSudoku(solvedGrid);
 
         let numberOfClues;
         switch (difficulty) {
@@ -84,13 +74,51 @@ document.addEventListener("DOMContentLoaded", function() {
                 numberOfClues = Math.floor(Math.random() * 10) + 30;
         }
 
-        for (let i = 0; i < numberOfClues; i++) {
+        // Copy the solved grid to use as a base for the puzzle
+        const puzzleGrid = JSON.parse(JSON.stringify(solvedGrid));
+
+        // Remove numbers randomly while keeping the puzzle solvable
+        let cluesToRemove = 81 - numberOfClues;
+        while (cluesToRemove > 0) {
             const row = Math.floor(Math.random() * 9);
             const col = Math.floor(Math.random() * 9);
-            solvedGrid[row][col] = 0;
+            if (puzzleGrid[row][col] !== 0) {
+                puzzleGrid[row][col] = 0;
+                cluesToRemove--;
+            }
         }
 
-        updateGrid(solvedGrid);
+        updateGrid(puzzleGrid);
+    }
+
+    function generateSolvedSudoku() {
+        const grid = [];
+        for (let i = 0; i < 9; i++) {
+            const row = [];
+            for (let j = 0; j < 9; j++) {
+                row.push((i * 3 + Math.floor(i / 3) + j) % 9 + 1);
+            }
+            grid.push(row);
+        }
+        return grid;
+    }
+
+    function shuffleSudoku(grid) {
+        for (let i = 0; i < 3; i++) {
+            const group = [];
+            for (let j = 0; j < 3; j++) {
+                group.push(j);
+            }
+            group.sort(() => Math.random() - 0.5);
+            for (let j = 0; j < 3; j++) {
+                for (let k = 0; k < 3; k++) {
+                    const temp = grid[i * 3 + group[j]][k];
+                    grid[i * 3 + group[j]][k] = grid[i * 3 + j][k];
+                    grid[i * 3 + j][k] = temp;
+                }
+            }
+        }
+        return grid;
     }
 
     function getGrid() {
@@ -140,11 +168,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         return true;
     }
-/**
- * Recursive function to solve the Sudoku puzzle using backtracking.
- * @param {number[][]} grid - The Sudoku grid to solve.
- * @returns {boolean} - True if a solution is found, false otherwise.
- */
+
     function solve(grid) {
         let row = -1;
         let col = -1;
@@ -177,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
-        return false;//It returns false when no solution has found and hence it repeats the process until it has been solved
+        return false;
     }
 
     document.getElementById("solve-btn").addEventListener("click", solveSudoku);

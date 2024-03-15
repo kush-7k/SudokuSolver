@@ -10,8 +10,26 @@
   </script>
 </head>
 <body>
-
-<table>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Header with Buttons</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    
+    <header>
+        <div class="header-container">
+            <ul class="nav__wrapper">
+                <li class="nav__item"><a href="#home">Home</a></li>
+                <li class="nav__item"><a href="#code">Code</a></li>
+                <li class="nav__item"><a href="#connect">Connect</a></li>
+              </ul>
+        </div>
+    </header>    
+<table id="home">
     <tbody>
         <tr>
             <td contenteditable="true"></td>
@@ -123,8 +141,9 @@
 </div>
 
 <button id="solve-btn" class="solve-btn">Solve</button>
-<button id="generate-btn" class="solve-btn">Generate</button>
+<br><br>
 <button id="import-btn" class="solve-btn">Import</button>
+
 
 </body>
 </html>
