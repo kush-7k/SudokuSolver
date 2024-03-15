@@ -3,6 +3,8 @@
 Sudoku Solver is a web application that allows users to play and solve Sudoku puzzles of different difficulties. It features a user-friendly interface for inputting and solving Sudoku puzzles, along with various difficulty levels and an option to import custom Sudoku puzzles.
 
 ## Live Demo
+https://kush-7k.github.io/SudokuSolver/
+
 
 ## Features
 
