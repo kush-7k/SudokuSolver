@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Card Design</title>
+<style>
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 30px 10px rgba(255, 165, 0, 0.8) inset;
+    transition: 0.3s;
+    width: 300%;
+    max-width: 350px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+  }
+
+  body {
+    background-color: black;
+  }
+
+  .card:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.3), 0 0 40px 20px rgba(255, 165, 0, 0.8) inset;
+    transform: scale(1.05);
+  }
+
+  .card img {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .container {
+    padding: 16px;
+    text-align: center;
+  }
+
+  .container h4 {
+    margin: 0;
+    color: #333;
+    font-size: 22px;
+  }
+
+  .container p {
+    color: #777;
+    font-size: 16px;
+  }
+
+  .button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .button:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="container">
+    <h4><b> How to make this code?</b></h4>
+    <p>GITHUB REPOSITORY:</p> <a style="color: indigo;" href="https://github.com/kush-7k/SudokuSolver">SudokuSolver</a>
+    <p>HTML Layout: Design the HTML structure to include a Sudoku grid, difficulty buttons, and an import button.</p>
+    <p>Sudoku Solver Algorithm: Implement the Sudoku solver algorithm using backtracking. This algorithm recursively tries all possible numbers in empty cells until a solution is found.</p>
+    <p>Difficulty Levels: Define different difficulty levels (easy, medium, hard, very hard, and impossible) by adjusting the number of prefilled cells in the Sudoku grid. For example, an easy puzzle might have more prefilled cells than a hard one.</p>
+    <p>Import Button Functionality: Allow users to import their own Sudoku puzzles by providing an input field. When a file is selected, parse the puzzle and populate the Sudoku grid accordingly.</p>
+    <p>User Interaction: Implement event listeners for the difficulty buttons and import button to trigger the respective actions (e.g., generating a new puzzle of the selected difficulty or importing a custom puzzle).</p>
+    <p>Display: Update the Sudoku grid on the HTML page dynamically as the user interacts with it (fills in cells or solves the puzzle).</p>
+    <p>Validation: Validate user input to ensure that it adheres to Sudoku rules (numbers 1-9 in each row, column, and 3x3 subgrid).</p>
+    <p>Visual Feedback: Provide visual feedback to the user, such as highlighting incorrect cells or displaying a success message when the puzzle is solved.</p>
+    <p>Testing: Test the application thoroughly to ensure that it works correctly under various scenarios, including different difficulty levels and user inputs.</p>
+
+  </div>
+</div>
+</body>
+</html>
